@@ -21,7 +21,6 @@ TextStyle splashStyle = GoogleFonts.nunito(
 TextStyle onboard1 = GoogleFonts.nunito(
   fontSize: 26,
   fontWeight: FontWeight.w400,
-  color: kBlack,
 );
 
 TextStyle onboard2 = GoogleFonts.nunito(
