@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_apps/pages/splash_screen.dart';
+import 'package:furniture_apps/pages/onboarding_page.dart';
+import 'package:furniture_apps/splash_screen.dart';
 
 
 void main() => runApp(MyApp());
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => SplashScrenn(),
+        '/onboard': (context) => OnboardPage(),
       },
     );
   }
