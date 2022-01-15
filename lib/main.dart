@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_apps/theme.dart';
+import 'package:furniture_apps/pages/splash_screen.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -8,16 +9,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Material App',
-      home: Scaffold(
-        backgroundColor: kBlack,
-        body: Center(
-          child: Text(
-            'Space',
-            style: splashStyle,
-          ),
-        ),
-      ),
+      routes: {
+        '/': (context) => SplashScrenn(),
+      },
     );
   }
 }
