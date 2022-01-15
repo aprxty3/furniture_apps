@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_apps/theme.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,12 +10,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
+        backgroundColor: kBlack,
         body: Center(
-          child: Container(
-            child: Text('Hello World'),
+          child: Text(
+            'Space',
+            style: splashStyle,
           ),
         ),
       ),
