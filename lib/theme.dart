@@ -42,7 +42,7 @@ TextStyle mainStyle = GoogleFonts.nunito(
   color: kBlack,
 );
 
-TextStyle rememberMe = GoogleFonts.nunito(
+TextStyle rememberMeStyle = GoogleFonts.nunito(
   fontSize: 16,
   fontWeight: FontWeight.w400,
   color: kBlack,
@@ -53,7 +53,11 @@ TextStyle loginGoogle = GoogleFonts.nunito(
   fontWeight: FontWeight.w600,
   color: kBlack,
 );
-
+TextStyle loginStyle = GoogleFonts.nunito(
+  fontSize: 18,
+  fontWeight: FontWeight.w600,
+  color: kWhite,
+);
 TextStyle hintTextStyle = GoogleFonts.nunito(
   fontSize: 16,
   fontWeight: FontWeight.w600,
