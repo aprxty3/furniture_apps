@@ -105,7 +105,8 @@ class _OnboardPageState extends State<OnboardPage> {
                 TextButton(
                   onPressed: () {
                     if (currentIndex == 2) {
-                      Navigator.pushNamed(context, '/sign-in');
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, '/sign-in', (route) => false);
                     } else {
                       controller.nextPage();
                     }
