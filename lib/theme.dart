@@ -53,17 +53,24 @@ TextStyle loginGoogle = GoogleFonts.nunito(
   fontWeight: FontWeight.w600,
   color: kBlack,
 );
+
 TextStyle loginStyle = GoogleFonts.nunito(
   fontSize: 18,
   fontWeight: FontWeight.w600,
   color: kWhite,
 );
+
 TextStyle hintTextStyle = GoogleFonts.nunito(
   fontSize: 16,
   fontWeight: FontWeight.w600,
   color: kGrey,
 );
 
+TextStyle registerStyle = GoogleFonts.nunito(
+  fontSize: 16,
+  fontWeight: FontWeight.w600,
+  color: kBlue,
+);
 //HOMEPAGE
 TextStyle spaceStyle = GoogleFonts.roboto(
   fontSize: 19.5,
