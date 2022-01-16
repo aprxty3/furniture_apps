@@ -17,6 +17,8 @@ class _SignInPageState extends State<SignInPage> {
           padding: const EdgeInsets.symmetric(horizontal: 24),
           children: [
             title(),
+            email(),
+            password(),
           ],
         ),
       ),
@@ -77,6 +79,34 @@ class _SignInPageState extends State<SignInPage> {
           hintText: 'Email',
           hintStyle: hintTextStyle,
         ),
+      ),
+    );
+  }
+
+  Widget password() {
+    return Container(
+      margin: const EdgeInsets.only(top: 32),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        color: kWhiteGrey,
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextFormField(
+              obscureText: true,
+              decoration: InputDecoration.collapsed(
+                hintText: 'Password',
+                hintStyle: hintTextStyle,
+              ),
+            ),
+          ),
+          Icon(
+            Icons.visibility_outlined,
+            color: kGrey,
+          ),
+        ],
       ),
     );
   }
