@@ -48,6 +48,18 @@ TextStyle rememberMeStyle = GoogleFonts.nunito(
   color: kBlack,
 );
 
+TextStyle salahStyle = GoogleFonts.nunito(
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  color: kRed,
+);
+
+TextStyle salah2Style = GoogleFonts.nunito(
+  fontSize: 16,
+  fontWeight: FontWeight.w600,
+  color: kWhite,
+);
+
 TextStyle loginGoogle = GoogleFonts.nunito(
   fontSize: 18,
   fontWeight: FontWeight.w600,
@@ -71,6 +83,8 @@ TextStyle registerStyle = GoogleFonts.nunito(
   fontWeight: FontWeight.w600,
   color: kBlue,
 );
+
+
 //HOMEPAGE
 TextStyle spaceStyle = GoogleFonts.roboto(
   fontSize: 19.5,
