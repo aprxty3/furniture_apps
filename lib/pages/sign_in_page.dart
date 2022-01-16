@@ -19,6 +19,8 @@ class _SignInPageState extends State<SignInPage> {
             title(),
             email(),
             password(),
+            rememberMe(),
+            login(),
           ],
         ),
       ),
@@ -107,6 +109,55 @@ class _SignInPageState extends State<SignInPage> {
             color: kGrey,
           ),
         ],
+      ),
+    );
+  }
+
+  Widget rememberMe() {
+    return Container(
+      margin: const EdgeInsets.only(top: 32),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 20,
+            height: 20,
+            child: Checkbox(
+              value: false,
+              onChanged: (value) {},
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+          ),
+          const SizedBox(
+            width: 12,
+          ),
+          Text(
+            'Remember Me',
+            style: rememberMeStyle,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget login() {
+    return Container(
+      margin: const EdgeInsets.only(top: 32),
+      width: double.infinity,
+      height: 56,
+      // padding: const EdgeInsets.symmetric(vertical: 15),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        color: kBlack,
+      ),
+      child: TextButton(
+        onPressed: () {},
+        child: Text(
+          'Login',
+          style: loginStyle,
+          // textAlign: TextAlign.center,
+        ),
       ),
     );
   }
