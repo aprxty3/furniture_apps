@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_apps/theme.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -10,6 +11,15 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  late FToast fToast;
+
+  @override
+  void initState() {
+    super.initState();
+    fToast = FToast();
+    fToast.init(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,30 +112,42 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   Widget password() {
-    return Container(
-      margin: const EdgeInsets.only(top: 32),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14),
-        color: kWhiteGrey,
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: TextFormField(
-              obscureText: true,
-              decoration: InputDecoration.collapsed(
-                hintText: 'Password',
-                hintStyle: hintTextStyle,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          margin: const EdgeInsets.only(top: 32),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            color: kWhiteGrey,
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextFormField(
+                  obscureText: true,
+                  decoration: InputDecoration.collapsed(
+                    hintText: 'Password',
+                    hintStyle: hintTextStyle,
+                  ),
+                ),
               ),
-            ),
+              Icon(
+                Icons.visibility_outlined,
+                color: kGrey,
+              ),
+            ],
           ),
-          Icon(
-            Icons.visibility_outlined,
-            color: kGrey,
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(
+          'Password Kamu Salah',
+          style: salahStyle,
+        ),
+      ],
     );
   }
 
@@ -171,7 +193,13 @@ class _SignInPageState extends State<SignInPage> {
             borderRadius: BorderRadius.circular(14),
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          fToast.showToast(
+            child: errorToast(),
+            toastDuration: Duration(seconds: 2),
+            gravity: ToastGravity.BOTTOM,
+          );
+        },
         child: Text(
           'Login',
           style: loginStyle,
@@ -225,6 +253,20 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget errorToast() {
+    return Container(
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: kRed,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Text(
+        'Password Salah',
+        style: salah2Style,
       ),
     );
   }
