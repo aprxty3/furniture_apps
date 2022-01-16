@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_apps/theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -21,6 +22,21 @@ class _SignInPageState extends State<SignInPage> {
             password(),
             rememberMe(),
             login(),
+            const SizedBox(
+              height: 21,
+            ),
+            Center(
+              child: Text(
+                'OR',
+                style: GoogleFonts.nunito(
+                  color: kGrey,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            loginWith(),
+            register(),
           ],
         ),
       ),
@@ -147,17 +163,68 @@ class _SignInPageState extends State<SignInPage> {
       width: double.infinity,
       height: 56,
       // padding: const EdgeInsets.symmetric(vertical: 15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14),
-        color: kBlack,
-      ),
+
       child: TextButton(
+        style: TextButton.styleFrom(
+          backgroundColor: kBlack,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+          ),
+        ),
         onPressed: () {},
         child: Text(
           'Login',
           style: loginStyle,
           // textAlign: TextAlign.center,
         ),
+      ),
+    );
+  }
+
+  Widget loginWith() {
+    return Container(
+      margin: const EdgeInsets.only(top: 21),
+      height: 56,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: TextButton(
+        style: TextButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+          ),
+        ),
+        onPressed: () {},
+        child: Text(
+          'Login With Google',
+          style: loginGoogle,
+        ),
+      ),
+    );
+  }
+
+  Widget register() {
+    return Container(
+      margin: const EdgeInsets.only(top: 48),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Don’t have an account?',
+            style: hintTextStyle,
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          InkWell(
+            onTap: () {},
+            child: Text(
+              'Register',
+              style: registerStyle,
+            ),
+          ),
+        ],
       ),
     );
   }
