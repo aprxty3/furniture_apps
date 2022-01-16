@@ -13,6 +13,13 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   late FToast fToast;
 
+  final emailController = TextEditingController(text: '');
+  final passwordController = TextEditingController(text: '');
+
+  bool isShowPasswordError = false;
+  bool isRememberMe = false;
+  bool isLoading = false;
+
   @override
   void initState() {
     super.initState();
@@ -103,6 +110,7 @@ class _SignInPageState extends State<SignInPage> {
         color: kWhiteGrey,
       ),
       child: TextFormField(
+        controller: emailController,
         decoration: InputDecoration.collapsed(
           hintText: 'Email',
           hintStyle: hintTextStyle,
@@ -126,6 +134,7 @@ class _SignInPageState extends State<SignInPage> {
             children: [
               Expanded(
                 child: TextFormField(
+                  controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration.collapsed(
                     hintText: 'Password',
@@ -140,13 +149,14 @@ class _SignInPageState extends State<SignInPage> {
             ],
           ),
         ),
-        const SizedBox(
-          height: 10,
-        ),
-        Text(
-          'Password Kamu Salah',
-          style: salahStyle,
-        ),
+        if (isShowPasswordError)
+          Container(
+            margin: const EdgeInsets.only(top: 10),
+            child: Text(
+              'Password Kamu Salah',
+              style: salahStyle,
+            ),
+          ),
       ],
     );
   }
@@ -160,8 +170,12 @@ class _SignInPageState extends State<SignInPage> {
             width: 20,
             height: 20,
             child: Checkbox(
-              value: false,
-              onChanged: (value) {},
+              value: isRememberMe,
+              onChanged: (value) {
+                setState(() {
+                  isRememberMe = value!;
+                });
+              },
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4),
               ),
@@ -194,17 +208,36 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ),
         onPressed: () {
-          fToast.showToast(
-            child: errorToast(),
-            toastDuration: Duration(seconds: 2),
-            gravity: ToastGravity.BOTTOM,
-          );
+          setState(() {
+            isLoading = true;
+          });
+
+          Future.delayed(const Duration(seconds: 2), () {
+            setState(() {
+              isLoading = false;
+            });
+            if (passwordController.text != '123456') {
+              setState(() {
+                isShowPasswordError = true;
+              });
+            }
+            fToast.showToast(
+              child: errorToast(),
+              toastDuration: const Duration(seconds: 2),
+              gravity: ToastGravity.BOTTOM,
+            );
+          });
         },
-        child: Text(
-          'Login',
-          style: loginStyle,
-          // textAlign: TextAlign.center,
-        ),
+        child: isLoading
+            ? CircularProgressIndicator(
+                color: kWhite,
+                backgroundColor: kGrey,
+              )
+            : Text(
+                'Login',
+                style: loginStyle,
+                // textAlign: TextAlign.center,
+              ),
       ),
     );
   }
@@ -259,7 +292,7 @@ class _SignInPageState extends State<SignInPage> {
 
   Widget errorToast() {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: kRed,
         borderRadius: BorderRadius.circular(10),
