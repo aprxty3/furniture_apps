@@ -220,12 +220,14 @@ class _SignInPageState extends State<SignInPage> {
               setState(() {
                 isShowPasswordError = true;
               });
+              fToast.showToast(
+                child: errorToast(),
+                toastDuration: const Duration(seconds: 2),
+                gravity: ToastGravity.BOTTOM,
+              );
+            } else {
+              Navigator.pushNamed(context, '/home');
             }
-            fToast.showToast(
-              child: errorToast(),
-              toastDuration: const Duration(seconds: 2),
-              gravity: ToastGravity.BOTTOM,
-            );
           });
         },
         child: isLoading
