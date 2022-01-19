@@ -122,34 +122,38 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 13, left: 24, right: 24),
+            margin: EdgeInsets.only(
+              top: 13,
+              left: 24,
+              right: 24,
+            ),
             child: Row(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(right: 10),
                   width: 10,
                   height: 10,
+                  margin: const EdgeInsets.only(right: 10),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: categoryIndex == 0 ? kBlack : kLineDark,
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(right: 10),
                   width: 10,
                   height: 10,
+                  margin: const EdgeInsets.only(right: 10),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: categoryIndex == 1 ? kLineDark : kBlack,
+                    color: categoryIndex == 1 ? kBlack : kLineDark,
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(right: 10),
                   width: 10,
                   height: 10,
+                  margin: const EdgeInsets.only(right: 10),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: categoryIndex == 2 ? kLineDark : kBlack,
+                    color: categoryIndex == 2 ? kBlack : kLineDark,
                   ),
                 ),
               ],
