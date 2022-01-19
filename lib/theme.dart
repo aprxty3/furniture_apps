@@ -84,12 +84,17 @@ TextStyle registerStyle = GoogleFonts.nunito(
   color: kBlue,
 );
 
-
 //HOMEPAGE
 TextStyle spaceStyle = GoogleFonts.roboto(
   fontSize: 19.5,
   fontWeight: FontWeight.w700,
   color: kBlack,
+);
+
+TextStyle searchStyle = GoogleFonts.roboto(
+  fontSize: 16,
+  fontWeight: FontWeight.w600,
+  color: kGrey,
 );
 
 TextStyle showAllStyle = GoogleFonts.nunito(
