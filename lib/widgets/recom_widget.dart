@@ -15,6 +15,7 @@ class RecomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 18),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: kWhite,
@@ -22,14 +23,20 @@ class RecomWidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset(
-            imageUrl,
+          Container(
+            margin: const EdgeInsets.only(right: 12),
             width: 60,
-          ),
-          const SizedBox(
-            width: 12,
+            height: 60,
+            decoration: BoxDecoration(
+              color: kWhiteGrey,
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: AssetImage(imageUrl),
+              ),
+            ),
           ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 title,
