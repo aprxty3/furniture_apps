@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_apps/theme.dart';
+import 'package:furniture_apps/widgets/recom_widget.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -53,10 +54,27 @@ class SearchPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
-        child: Text(
-          'hahaha',
+      body: ListView(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 24,
         ),
+        children: [
+          const SizedBox(
+            height: 41,
+          ),
+          Text(
+            'Recommendation',
+            style: recomStyle,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          RecomWidget(
+            imageUrl: 'assets/list1.png',
+            title: 'Poan Chair',
+            price: 34,
+          ),
+        ],
       ),
     );
   }
