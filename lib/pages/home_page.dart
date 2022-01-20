@@ -44,26 +44,31 @@ class _HomePageState extends State<HomePage> {
     }
 
     Widget searchBar() {
-      return Container(
-        margin: const EdgeInsets.only(top: 30, left: 24, right: 24),
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: kWhite,
-          borderRadius: BorderRadius.circular(14),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Search Funiture',
-              style: searchStyle,
-            ),
-            Image.asset(
-              'assets/icon_search.png',
-              width: 24,
-              color: kGrey,
-            ),
-          ],
+      return GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, '/search');
+        },
+        child: Container(
+          margin: const EdgeInsets.only(top: 30, left: 24, right: 24),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: kWhite,
+            borderRadius: BorderRadius.circular(14),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Search Funiture',
+                style: searchStyle,
+              ),
+              Image.asset(
+                'assets/icon_search.png',
+                width: 24,
+                color: kGrey,
+              ),
+            ],
+          ),
         ),
       );
     }
