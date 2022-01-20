@@ -189,18 +189,39 @@ class _HomePageState extends State<HomePage> {
               height: 16,
             ),
             SizedBox(
-              height: 300,
-              child: Row(
-                children: const [
-                  PopularCartWidget(
-                    title: 'Poan Chair',
-                    imageUrl: 'assets/list1.png',
-                    price: 34,
-                    isWishlist: true,
-                  ),
-                ],
+              height: 310,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: const [
+                    PopularCartWidget(
+                      title: 'Poan Chair',
+                      imageUrl: 'assets/list1.png',
+                      price: 34,
+                      isWishlist: true,
+                    ),
+                    PopularCartWidget(
+                      title: 'Poan Chair',
+                      imageUrl: 'assets/list2.png',
+                      price: 34,
+                      isWishlist: false,
+                    ),
+                    PopularCartWidget(
+                      title: 'Poan Chair',
+                      imageUrl: 'assets/list3.png',
+                      price: 34,
+                      isWishlist: false,
+                    ),
+                    SizedBox(
+                      width: 24,
+                    ),
+                  ],
+                ),
               ),
-            )
+            ),
+            const SizedBox(
+              height: 50,
+            ),
           ],
         ),
       );
