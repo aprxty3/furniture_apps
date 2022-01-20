@@ -69,9 +69,21 @@ class SearchPage extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          RecomWidget(
+       const   RecomWidget(
             imageUrl: 'assets/list1.png',
             title: 'Poan Chair',
+            price: 34,
+          ),  const   RecomWidget(
+            imageUrl: 'assets/list2.png',
+            title: 'Poan Sofa',
+            price: 34,
+          ),  const   RecomWidget(
+            imageUrl: 'assets/list3.png',
+            title: 'Poan Chair',
+            price: 34,
+          ),  const   RecomWidget(
+            imageUrl: 'assets/list4.png',
+            title: 'Poan Table',
             price: 34,
           ),
         ],
