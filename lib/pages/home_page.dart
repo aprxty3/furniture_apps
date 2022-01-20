@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_apps/theme.dart';
 import 'package:furniture_apps/widgets/category_cart_widget.dart';
+import 'package:furniture_apps/widgets/popilar_cart_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -122,7 +123,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(
+            margin: const EdgeInsets.only(
               top: 13,
               left: 24,
               right: 24,
@@ -160,6 +161,48 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ],
+      );
+    }
+
+    Widget popular() {
+      return Container(
+        margin: const EdgeInsets.only(top: 24),
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.vertical(
+            top: Radius.circular(40),
+          ),
+          color: kWhite,
+        ),
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 24, left: 24, right: 24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Popular', style: popularStyle1),
+                  Text('Show All', style: showAllStyle)
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            SizedBox(
+              height: 300,
+              child: Row(
+                children: const [
+                  PopularCartWidget(
+                    title: 'Poan Chair',
+                    imageUrl: 'assets/list1.png',
+                    price: 34,
+                    isWishlist: true,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       );
     }
 
@@ -205,6 +248,7 @@ class _HomePageState extends State<HomePage> {
               searchBar(),
               categoryText(),
               categoryCart(),
+              popular(),
             ],
           )
         ],
