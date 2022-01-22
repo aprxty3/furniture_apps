@@ -139,7 +139,7 @@ TextStyle popularStyle2 = GoogleFonts.nunito(
   color: kBlack,
 );
 
-//RECOMMENDATION
+//RECOMMENDATION/SEARCH
 
 TextStyle recomStyle = GoogleFonts.nunito(
   fontSize: 16,
