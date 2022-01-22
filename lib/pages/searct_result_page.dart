@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_apps/widgets/product_grid_widget.dart';
 import 'package:furniture_apps/widgets/skeleton_widget.dart';
 
 import '../theme.dart';
@@ -109,7 +110,8 @@ Widget buildBody() {
       const SizedBox(
         height: 20,
       ),
-      buildLoading(),
+      // buildLoading(),
+      buildGrid(),
     ],
   );
 }
@@ -119,7 +121,7 @@ Widget buildLoading() {
     crossAxisAlignment: WrapCrossAlignment.center,
     runSpacing: 12,
     spacing: 7,
-    children: [
+    children: const [
       SkeletonWidget(),
       SkeletonWidget(),
       SkeletonWidget(),
@@ -133,5 +135,47 @@ Widget buildLoading() {
 }
 
 Widget buildGrid() {
-  return Container();
+  return Wrap(
+    crossAxisAlignment: WrapCrossAlignment.center,
+    runSpacing: 12,
+    spacing: 7,
+    children: const [
+      ProductGridWidget(
+        imageUrl: 'assets/search1.png',
+        title: 'Poan Chair',
+        price: 14,
+        isWishlish: false,
+      ),
+      ProductGridWidget(
+        imageUrl: 'assets/search2.png',
+        title: 'Poan Chair',
+        price: 14,
+        isWishlish: true,
+      ),
+      ProductGridWidget(
+        imageUrl: 'assets/search3.png',
+        title: 'Poan Chair',
+        price: 14,
+        isWishlish: false,
+      ),
+      ProductGridWidget(
+        imageUrl: 'assets/search4.png',
+        title: 'Poan Chair',
+        price: 14,
+        isWishlish: false,
+      ),
+      ProductGridWidget(
+        imageUrl: 'assets/search5.png',
+        title: 'Poan Chair',
+        price: 14,
+        isWishlish: false,
+      ),
+      ProductGridWidget(
+        imageUrl: 'assets/search6.png',
+        title: 'Poan Chair',
+        price: 14,
+        isWishlish: true,
+      ),
+    ],
+  );
 }
