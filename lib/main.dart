@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         '/sign-in': (context) => SignInPage(),
         '/home': (context) => HomePage(),
         '/search': (context) => SearchPage(),
-        '/search_result': (context) => SearchResult(),
+        '/search_result': (context) => SearchResult()
       },
     );
   }
