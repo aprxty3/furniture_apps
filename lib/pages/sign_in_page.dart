@@ -216,7 +216,7 @@ class _SignInPageState extends State<SignInPage> {
             setState(() {
               isLoading = false;
             });
-            if (passwordController.text != '123456') {
+            if (passwordController.text != '') {
               setState(() {
                 isShowPasswordError = true;
               });
