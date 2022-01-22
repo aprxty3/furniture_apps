@@ -267,7 +267,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Stack(
         children: [
-          Image.asset('assets/top_background.png'),
+          Image.asset('assets/top_background.png',),
           ListView(
             children: [
               header(),
