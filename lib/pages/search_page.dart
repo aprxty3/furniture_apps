@@ -17,9 +17,14 @@ class SearchPage extends StatelessWidget {
           elevation: 0,
           title: Row(
             children: [
-              Icon(
-                Icons.chevron_left,
-                color: kBlack,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.chevron_left,
+                  color: kBlack,
+                ),
               ),
               const SizedBox(
                 width: 18,
