@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_apps/widgets/skeleton_widget.dart';
 
 import '../theme.dart';
 
@@ -114,7 +115,21 @@ Widget buildBody() {
 }
 
 Widget buildLoading() {
-  return Container();
+  return Wrap(
+    crossAxisAlignment: WrapCrossAlignment.center,
+    runSpacing: 12,
+    spacing: 7,
+    children: [
+      SkeletonWidget(),
+      SkeletonWidget(),
+      SkeletonWidget(),
+      SkeletonWidget(),
+      SkeletonWidget(),
+      SkeletonWidget(),
+      SkeletonWidget(),
+      SkeletonWidget(),
+    ],
+  );
 }
 
 Widget buildGrid() {
