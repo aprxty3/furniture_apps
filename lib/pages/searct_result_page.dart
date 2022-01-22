@@ -5,8 +5,26 @@ import 'package:furniture_apps/widgets/skeleton_widget.dart';
 
 import '../theme.dart';
 
-class SearchResult extends StatelessWidget {
+class SearchResult extends StatefulWidget {
   const SearchResult({Key? key}) : super(key: key);
+
+  @override
+  State<SearchResult> createState() => _SearchResultState();
+}
+
+class _SearchResultState extends State<SearchResult> {
+  bool isLoading = true;
+  bool isGrid = true;
+
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,15 +127,26 @@ class SearchResult extends StatelessWidget {
               'Result for : Poang',
               style: recomStyle,
             ),
-            Image.asset('assets/icon_list.png', width: 24),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  isGrid = !isGrid;
+                });
+              },
+              child: Image.asset(
+                  isGrid ? 'assets/icon_list.png' : 'assets/icon_grid.png',
+                  width: 24),
+            ),
           ],
         ),
         const SizedBox(
           height: 20,
         ),
-        // buildLoading(),
-        // buildGrid(),
-        buildList()
+        isLoading
+            ? buildLoading()
+            : isGrid
+                ? buildGrid()
+                : buildList()
       ],
     );
   }
