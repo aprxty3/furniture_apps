@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:furniture_apps/pages/category_page.dart';
 import 'package:furniture_apps/pages/home_page.dart';
 import 'package:furniture_apps/pages/onboarding_page.dart';
+import 'package:furniture_apps/pages/profile_page.dart';
 import 'package:furniture_apps/pages/search_page.dart';
 import 'package:furniture_apps/pages/searct_result_page.dart';
 import 'package:furniture_apps/pages/sign_in_page.dart';
+import 'package:furniture_apps/pages/wishlist_page.dart';
 import 'package:furniture_apps/splash_screen.dart';
 
 void main() => runApp(MyApp());
@@ -22,6 +24,8 @@ class MyApp extends StatelessWidget {
         '/search': (context) => SearchPage(),
         '/search_result': (context) => SearchResult(),
         '/category': (context) => CategoryPage(),
+        '/wishlist': (context) => WishlistPage(),
+        '/profile': (context) => ProfilePage(),
       },
     );
   }
