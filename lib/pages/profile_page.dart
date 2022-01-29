@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:furniture_apps/widgets/profile_widget.dart';
 
@@ -12,7 +14,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   bool isLightMode = true;
-
+  double opacity = 1;
   @override
   Widget build(BuildContext context) {
     Widget header() {
@@ -52,26 +54,31 @@ class _ProfilePageState extends State<ProfilePage> {
               onTap: () {
                 setState(() {
                   isLightMode = !isLightMode;
+                  opacity = 0;
+                });
+                Timer(Duration(milliseconds: 500), () {
+                  setState(() {
+                    opacity = 1;
+                  });
                 });
               },
               child: Container(
-                padding: const EdgeInsets.all(4),
-                width: 88,
-                height: 44,
-                decoration: BoxDecoration(
-                  color: isLightMode ? kWhite : kBlackAccent,
-                  borderRadius: BorderRadius.circular(100),
-                ),
-                child: isLightMode
-                    ? Align(
-                        alignment: Alignment.centerLeft,
-                        child: Image.asset('assets/switch_dark.png'),
-                      )
-                    : Align(
-                        alignment: Alignment.centerRight,
-                        child: Image.asset('assets/switch_light.png'),
-                      ),
-              ),
+                  padding: const EdgeInsets.all(4),
+                  width: 88,
+                  height: 44,
+                  decoration: BoxDecoration(
+                    color: isLightMode ? kWhite : kBlackAccent,
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  child: AnimatedAlign(
+                    duration: Duration(milliseconds: 300),
+                    alignment: isLightMode
+                        ? Alignment.centerLeft
+                        : Alignment.centerRight,
+                    child: isLightMode
+                        ? Image.asset('assets/switch_dark.png')
+                        : Image.asset('assets/switch_light.png'),
+                  )),
             ),
           ],
         ),
@@ -132,63 +139,67 @@ class _ProfilePageState extends State<ProfilePage> {
       );
     }
 
-    return Scaffold(
-      backgroundColor: isLightMode ? kWhiteGrey : kBlack,
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: BottomNavigationBar(
-          showUnselectedLabels: false,
-          showSelectedLabels: false,
-          backgroundColor: isLightMode ? kWhite : kBlackAccent,
-          onTap: (value) {
-            if (value == 0) {
-              Navigator.pushNamed(context, '/home');
-            }
-            if (value == 1) {
-              Navigator.pushNamed(context, '/wishlist');
-            }
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/icon_home.png',
-                width: 24,
-                color: isLightMode ? kBlack : kWhite,
+    return AnimatedOpacity(
+      duration: Duration(milliseconds: 500),
+      opacity: opacity,
+      child: Scaffold(
+        backgroundColor: isLightMode ? kWhiteGrey : kBlack,
+        bottomNavigationBar: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: BottomNavigationBar(
+            showUnselectedLabels: false,
+            showSelectedLabels: false,
+            backgroundColor: isLightMode ? kWhite : kBlackAccent,
+            onTap: (value) {
+              if (value == 0) {
+                Navigator.pushNamed(context, '/home');
+              }
+              if (value == 1) {
+                Navigator.pushNamed(context, '/wishlist');
+              }
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/icon_home.png',
+                  width: 24,
+                  color: isLightMode ? kBlack : kWhite,
+                ),
+                label: 'home',
               ),
-              label: 'home',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/icon_heart.png',
-                width: 24,
-                color: isLightMode ? kBlack : kWhite,
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/icon_heart.png',
+                  width: 24,
+                  color: isLightMode ? kBlack : kWhite,
+                ),
+                label: 'wishlish',
               ),
-              label: 'wishlish',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/icon_person.png',
-                width: 24,
-                color: kBlue,
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/icon_person.png',
+                  width: 24,
+                  color: kBlue,
+                ),
+                label: 'profile',
               ),
-              label: 'profile',
+            ],
+          ),
+        ),
+        body: Stack(
+          children: [
+            Image.asset(
+              'assets/top_background.png',
             ),
+            ListView(
+              children: [
+                const SizedBox(height: 120),
+                header(),
+                mainContent(),
+              ],
+            )
           ],
         ),
-      ),
-      body: Stack(
-        children: [
-          Image.asset(
-            'assets/top_background.png',
-          ),
-          ListView(
-            children: [
-              const SizedBox(height: 120),
-              header(),
-              mainContent(),
-            ],
-          )
-        ],
       ),
     );
   }
