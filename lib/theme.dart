@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 Color kBlack = const Color(0xff222222);
 Color kBlackAccent = const Color(0xff2A2B37);
+Color kBlackLight = const Color(0xff252836);
 Color kGrey = const Color(0xff94959B);
 Color kLineDark = const Color(0xffEAEAEA);
 Color kWhiteGrey = const Color(0xffF1F1F5);
@@ -160,4 +161,3 @@ TextStyle profileStyle2 = GoogleFonts.nunito(
   fontWeight: FontWeight.w600,
   color: const Color(0xff18192B),
 );
-
