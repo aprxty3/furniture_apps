@@ -83,7 +83,7 @@ class ProfilePage extends StatelessWidget {
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
-                    Icons.arrow_forward,
+                    Icons.chevron_right,
                   ),
                 ),
               ],
@@ -105,7 +105,7 @@ class ProfilePage extends StatelessWidget {
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
-                    Icons.arrow_forward,
+                    Icons.chevron_right,
                   ),
                 ),
               ],
@@ -127,7 +127,7 @@ class ProfilePage extends StatelessWidget {
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
-                    Icons.arrow_forward,
+                    Icons.chevron_right,
                   ),
                 ),
               ],
@@ -149,7 +149,7 @@ class ProfilePage extends StatelessWidget {
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
-                    Icons.arrow_forward,
+                    Icons.chevron_right,
                   ),
                 ),
               ],
@@ -171,7 +171,7 @@ class ProfilePage extends StatelessWidget {
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
-                    Icons.arrow_forward,
+                    Icons.chevron_right,
                   ),
                 ),
               ],
@@ -193,7 +193,7 @@ class ProfilePage extends StatelessWidget {
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
-                    Icons.arrow_forward,
+                    Icons.chevron_right,
                   ),
                 ),
               ],
@@ -215,7 +215,7 @@ class ProfilePage extends StatelessWidget {
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
-                    Icons.arrow_forward,
+                    Icons.chevron_right,
                   ),
                 ),
               ],
