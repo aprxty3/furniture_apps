@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_apps/widgets/profile_widget.dart';
 
 import '../theme.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  bool isLightMode = true;
 
   @override
   Widget build(BuildContext context) {
@@ -34,21 +42,36 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Text(
                   'Theresa Webb',
-                  style: profileStyle1,
+                  style: profileStyle1.copyWith(
+                    color: isLightMode ? kBlackAccent : kWhite,
+                  ),
                 ),
               ],
             ),
-            Container(
-              padding: const EdgeInsets.all(4),
-              width: 88,
-              height: 44,
-              decoration: BoxDecoration(
-                color: kWhite,
-                borderRadius: BorderRadius.circular(100),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  isLightMode = !isLightMode;
+                });
+              },
+              child: Container(
+                padding: const EdgeInsets.all(4),
+                width: 88,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: isLightMode ? kWhite : kBlackAccent,
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                child: isLightMode
+                    ? Align(
+                        alignment: Alignment.centerLeft,
+                        child: Image.asset('assets/switch_dark.png'),
+                      )
+                    : Align(
+                        alignment: Alignment.centerRight,
+                        child: Image.asset('assets/switch_light.png'),
+                      ),
               ),
-              child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Image.asset('assets/switch_dark.png')),
             ),
           ],
         ),
@@ -58,9 +81,9 @@ class ProfilePage extends StatelessWidget {
     Widget mainContent() {
       return Container(
         margin: const EdgeInsets.only(top: 50),
-        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 24),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24),
         decoration: BoxDecoration(
-          color: kWhite,
+          color: isLightMode ? kWhite : kBlackAccent,
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(40),
             topRight: Radius.circular(40),
@@ -69,156 +92,40 @@ class ProfilePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Image.asset(
-                  'assets/icon_person.png',
-                  width: 24,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text('My Profile', style: profileStyle2),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.chevron_right,
-                  ),
-                ),
-              ],
+            ProfileWidget(
+              image: 'assets/icon_person.png',
+              name: 'My Profile',
+              isLightMode: isLightMode,
             ),
-            const SizedBox(
-              height: 10,
+            ProfileWidget(
+              image: 'assets/icon_map.png',
+              name: 'My Address',
+              isLightMode: isLightMode,
             ),
-            Row(
-              children: [
-                Image.asset(
-                  'assets/icon_map.png',
-                  width: 24,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text('My Address', style: profileStyle2),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.chevron_right,
-                  ),
-                ),
-              ],
+            ProfileWidget(
+              image: 'assets/icon_shopping.png',
+              name: 'My Order',
+              isLightMode: isLightMode,
             ),
-            const SizedBox(
-              height: 10,
+            ProfileWidget(
+              image: 'assets/icon_card.png',
+              name: 'Payment Method',
+              isLightMode: isLightMode,
             ),
-            Row(
-              children: [
-                Image.asset(
-                  'assets/icon_shopping.png',
-                  width: 24,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text('My Order', style: profileStyle2),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.chevron_right,
-                  ),
-                ),
-              ],
+            ProfileWidget(
+              image: 'assets/icon_heart.png',
+              name: 'Wishlist',
+              isLightMode: isLightMode,
             ),
-            const SizedBox(
-              height: 10,
+            ProfileWidget(
+              image: 'assets/icon_question.png',
+              name: 'Frequently Asked Questions',
+              isLightMode: isLightMode,
             ),
-            Row(
-              children: [
-                Image.asset(
-                  'assets/icon_card.png',
-                  width: 24,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text('Payment Method', style: profileStyle2),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.chevron_right,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                Image.asset(
-                  'assets/icon_heart.png',
-                  width: 24,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text('My Wishlist', style: profileStyle2),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.chevron_right,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                Image.asset(
-                  'assets/icon_question.png',
-                  width: 24,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text('Frequently Asked Questions', style: profileStyle2),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.chevron_right,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                Image.asset(
-                  'assets/icon_headphones.png',
-                  width: 24,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text('Customer Care', style: profileStyle2),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.chevron_right,
-                  ),
-                ),
-              ],
+            ProfileWidget(
+              image: 'assets/icon_headphones.png',
+              name: 'Customer Care',
+              isLightMode: isLightMode,
             ),
           ],
         ),
@@ -226,13 +133,13 @@ class ProfilePage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: kWhiteGrey,
+      backgroundColor: isLightMode ? kWhiteGrey : kBlack,
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: BottomNavigationBar(
           showUnselectedLabels: false,
           showSelectedLabels: false,
-          backgroundColor: kWhite,
+          backgroundColor: isLightMode ? kWhite : kBlackAccent,
           onTap: (value) {
             if (value == 0) {
               Navigator.pushNamed(context, '/home');
@@ -246,6 +153,7 @@ class ProfilePage extends StatelessWidget {
               icon: Image.asset(
                 'assets/icon_home.png',
                 width: 24,
+                color: isLightMode ? kBlack : kWhite,
               ),
               label: 'home',
             ),
@@ -253,6 +161,7 @@ class ProfilePage extends StatelessWidget {
               icon: Image.asset(
                 'assets/icon_heart.png',
                 width: 24,
+                color: isLightMode ? kBlack : kWhite,
               ),
               label: 'wishlish',
             ),
