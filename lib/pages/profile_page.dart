@@ -7,7 +7,56 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget header() {
+      return Container(
+        // color: Colors.amberAccent,
+        margin: const EdgeInsets.only(left: 30, right: 24),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 120,
+                  height: 120,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage('assets/avatar.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                Text(
+                  'Theresa Webb',
+                  style: profilePageStyle1,
+                ),
+              ],
+            ),
+            Container(
+              padding: const EdgeInsets.all(4),
+              width: 88,
+              height: 44,
+              decoration: BoxDecoration(
+                color: kWhite,
+                borderRadius: BorderRadius.circular(100),
+              ),
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Image.asset('assets/switch_dark.png')),
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
+      backgroundColor: kWhiteGrey,
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: BottomNavigationBar(
@@ -47,6 +96,19 @@ class ProfilePage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      body: Stack(
+        children: [
+          Image.asset(
+            'assets/top_background.png',
+          ),
+          ListView(
+            children: [
+              const SizedBox(height: 120),
+              header(),
+            ],
+          )
+        ],
       ),
     );
   }
