@@ -160,3 +160,11 @@ TextStyle profileStyle2 = GoogleFonts.nunito(
   fontWeight: FontWeight.w600,
   color: const Color(0xff18192B),
 );
+
+//PROFILE PAGE
+
+TextStyle profilePageStyle1 = GoogleFonts.poppins(
+  fontSize: 24,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xff18192B),
+);
