@@ -34,7 +34,7 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Text(
                   'Theresa Webb',
-                  style: profilePageStyle1,
+                  style: profileStyle1,
                 ),
               ],
             ),
@@ -49,6 +49,176 @@ class ProfilePage extends StatelessWidget {
               child: Align(
                   alignment: Alignment.centerLeft,
                   child: Image.asset('assets/switch_dark.png')),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget mainContent() {
+      return Container(
+        margin: const EdgeInsets.only(top: 50),
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 24),
+        decoration: BoxDecoration(
+          color: kWhite,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(40),
+            topRight: Radius.circular(40),
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icon_person.png',
+                  width: 24,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Text('My Profile', style: profileStyle2),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.arrow_forward,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icon_map.png',
+                  width: 24,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Text('My Address', style: profileStyle2),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.arrow_forward,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icon_shopping.png',
+                  width: 24,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Text('My Order', style: profileStyle2),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.arrow_forward,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icon_card.png',
+                  width: 24,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Text('Payment Method', style: profileStyle2),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.arrow_forward,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icon_heart.png',
+                  width: 24,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Text('My Wishlist', style: profileStyle2),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.arrow_forward,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icon_question.png',
+                  width: 24,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Text('Frequently Asked Questions', style: profileStyle2),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.arrow_forward,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icon_headphones.png',
+                  width: 24,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Text('Customer Care', style: profileStyle2),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.arrow_forward,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -106,6 +276,7 @@ class ProfilePage extends StatelessWidget {
             children: [
               const SizedBox(height: 120),
               header(),
+              mainContent(),
             ],
           )
         ],
