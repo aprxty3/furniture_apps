@@ -16,64 +16,69 @@ class PopularCartWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(0),
-      height: 300,
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        margin: const EdgeInsets.only(left: 24),
-        child: Column(
-          children: [
-            Container(
-              width: 200,
-              height: 180,
-              decoration: BoxDecoration(
-                color: kWhiteGrey,
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(10),
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/detail');
+      },
+      child: Container(
+        margin: const EdgeInsets.all(0),
+        height: 300,
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          margin: const EdgeInsets.only(left: 24),
+          child: Column(
+            children: [
+              Container(
+                width: 200,
+                height: 180,
+                decoration: BoxDecoration(
+                  color: kWhiteGrey,
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(10),
+                  ),
+                ),
+                child: Center(
+                  child: Image.asset(imageUrl),
                 ),
               ),
-              child: Center(
-                child: Image.asset(imageUrl),
+              Container(
+                width: 200,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 12,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: popularStyle2,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '\$${price}',
+                          style: popularStyle2,
+                        ),
+                        Image.asset(
+                          isWishlist
+                              ? 'assets/wishlish_red.png'
+                              : 'assets/wishlish_grey.png',
+                          width: 44,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-            Container(
-              width: 200,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 12,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: popularStyle2,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '\$${price}',
-                        style: popularStyle2,
-                      ),
-                      Image.asset(
-                        isWishlist
-                            ? 'assets/wishlish_red.png'
-                            : 'assets/wishlish_grey.png',
-                        width: 44,
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
