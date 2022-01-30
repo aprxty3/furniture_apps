@@ -168,3 +168,27 @@ TextStyle booknowStyle = GoogleFonts.nunito(
   fontWeight: FontWeight.w600,
   color: kWhite,
 );
+
+TextStyle detailStyle1 = GoogleFonts.nunito(
+  fontSize: 24,
+  fontWeight: FontWeight.w600,
+  color: kBlack,
+);
+
+TextStyle detailStyle2 = GoogleFonts.nunito(
+  fontSize: 24,
+  fontWeight: FontWeight.w400,
+  color: kBlack,
+);
+
+TextStyle detailStyle3 = GoogleFonts.nunito(
+  fontSize: 18,
+  fontWeight: FontWeight.w400,
+  color: kBlack,
+);
+
+TextStyle detailStyle4 = GoogleFonts.nunito(
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+  color: kGrey,
+);
