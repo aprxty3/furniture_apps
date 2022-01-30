@@ -161,3 +161,10 @@ TextStyle profileStyle2 = GoogleFonts.nunito(
   fontWeight: FontWeight.w600,
   color: const Color(0xff18192B),
 );
+
+//DETAIL PAGE
+TextStyle booknowStyle = GoogleFonts.nunito(
+  fontSize: 18,
+  fontWeight: FontWeight.w600,
+  color: kWhite,
+);
