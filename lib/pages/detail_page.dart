@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_apps/theme.dart';
+import 'package:furniture_apps/widgets/show_more_widget.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class _DetailPageState extends State<DetailPage> {
   double indicatorMargin = 5;
   int currentIndex = 1;
   bool isExpand = false;
+  bool isShow = false;
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +52,9 @@ class _DetailPageState extends State<DetailPage> {
     Widget mainContent() {
       return SizedBox.expand(
         child: DraggableScrollableSheet(
-          initialChildSize: 0.32,
-          minChildSize: 0.32,
-          maxChildSize: 0.9,
+          initialChildSize: 0.4,
+          minChildSize: 0.4,
+          maxChildSize: 0.95,
           builder: (BuildContext build, ScrollController scrollController) {
             return Container(
               padding: const EdgeInsets.only(top: 16, left: 24, right: 24),
@@ -66,13 +68,14 @@ class _DetailPageState extends State<DetailPage> {
               child: NotificationListener(
                 onNotification: (Notification notif) {
                   if (notif is ScrollEndNotification) {
-                    if (notif.metrics.maxScrollExtent == -1.0) {
+                    if (notif.metrics.minScrollExtent == -1.0) {
                       setState(() {
                         isExpand = true;
                       });
                     } else {
                       setState(() {
                         isExpand = false;
+                        isShow = false;
                       });
                     }
                   }
@@ -176,6 +179,51 @@ class _DetailPageState extends State<DetailPage> {
                         'Bringing new life to an old favourite. We first introduced this chair in the 1950’s. Some 60 years later we brought it back into the range with the same craftsmanship, comfort and appearance. Enjoy!',
                         style: detailStyle4.copyWith(height: 1.2),
                       ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      isShow
+                          ? Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Review',
+                                  style: detailStyle1,
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                ShowMoreWidget(
+                                  name: 'Lydia',
+                                  imageUrl: 'assets/avatar1.png',
+                                  review:
+                                      'Open repair of infrarenal aortic aneurysm or dissection, plus of a repair of associated arterial...',
+                                  items: ['assets/detail1.png'],
+                                ),
+                                ShowMoreWidget(
+                                  name: 'Audra',
+                                  imageUrl: 'assets/avatar2.png',
+                                  review:
+                                      'Open repair of infrarenal aortic aneurysm or dissection, plus of a repair of associated arterial...',
+                                  items: [
+                                    'assets/detail1.png',
+                                    'assets/detail3.png',
+                                    'assets/detail4.png'
+                                  ],
+                                ),
+                                ShowMoreWidget(
+                                  name: 'Joan',
+                                  imageUrl: 'assets/avatar3.png',
+                                  review:
+                                      'Open repair of infrarenal aortic aneurysm or dissection, plus of a repair of associated arterial...',
+                                  items: [
+                                    'assets/detail2.png',
+                                    'assets/detail5.png'
+                                  ],
+                                ),
+                              ],
+                            )
+                          : SizedBox(),
                     ],
                   ),
                 ),
@@ -188,55 +236,81 @@ class _DetailPageState extends State<DetailPage> {
 
     return Scaffold(
       backgroundColor: kWhiteGrey,
-      bottomNavigationBar: isExpand
+      extendBody: true,
+      bottomNavigationBar: isShow
           ? null
-          : Container(
-              padding: const EdgeInsets.all(20),
-              width: double.infinity,
-              height: 96,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: kWhite,
-              ),
-              child: Row(
-                children: [
-                  Container(
-                    width: 56,
-                    height: 56,
-                    decoration: BoxDecoration(
-                      color: kWhiteGrey,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Image.asset(
-                        'assets/icon_shopping_cart.png',
-                        width: 32,
-                      ),
+          : isExpand
+              ? Container(
+                  width: double.infinity,
+                  height: 325,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [kWhite.withOpacity(0.5), kWhite],
                     ),
                   ),
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 16),
-                      width: 300,
-                      height: 56,
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: kBlack,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          setState(() {
+                            isShow = true;
+                          });
+                        },
+                        child: Text('See More'),
+                      ),
+                    ],
+                  ),
+                )
+              : Container(
+                  padding: const EdgeInsets.all(20),
+                  width: double.infinity,
+                  height: 96,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: kWhite,
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 56,
+                        height: 56,
+                        decoration: BoxDecoration(
+                          color: kWhiteGrey,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Image.asset(
+                            'assets/icon_shopping_cart.png',
+                            width: 32,
                           ),
                         ),
-                        onPressed: () {},
-                        child: Text(
-                          'Book Now',
-                          style: booknowStyle,
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.only(left: 16),
+                          width: 300,
+                          height: 56,
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              backgroundColor: kBlack,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(14),
+                              ),
+                            ),
+                            onPressed: () {},
+                            child: Text(
+                              'Book Now',
+                              style: booknowStyle,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
-            ),
+                ),
       body: Stack(
         children: [
           Image.asset(
