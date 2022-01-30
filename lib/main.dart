@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         '/category': (context) => CategoryPage(),
         '/wishlist': (context) => WishlistPage(),
         '/profile': (context) => ProfilePage(),
-        'detail': (context) => DetailPage(),
+        '/detail': (context) => DetailPage(),
       },
     );
   }
