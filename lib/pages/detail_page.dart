@@ -193,14 +193,14 @@ class _DetailPageState extends State<DetailPage> {
                                 const SizedBox(
                                   height: 20,
                                 ),
-                                ShowMoreWidget(
+                                const ShowMoreWidget(
                                   name: 'Lydia',
                                   imageUrl: 'assets/avatar1.png',
                                   review:
                                       'Open repair of infrarenal aortic aneurysm or dissection, plus of a repair of associated arterial...',
                                   items: ['assets/detail1.png'],
                                 ),
-                                ShowMoreWidget(
+                                const ShowMoreWidget(
                                   name: 'Audra',
                                   imageUrl: 'assets/avatar2.png',
                                   review:
@@ -211,7 +211,7 @@ class _DetailPageState extends State<DetailPage> {
                                     'assets/detail4.png'
                                   ],
                                 ),
-                                ShowMoreWidget(
+                                const ShowMoreWidget(
                                   name: 'Joan',
                                   imageUrl: 'assets/avatar3.png',
                                   review:
